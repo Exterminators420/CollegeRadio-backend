@@ -32,7 +32,7 @@ class User(Model):
         null=True,
     )
 
-    likes = models.IntegerField()
+    likes = models.IntegerField(default=0)
 
 
     def __str__(self):

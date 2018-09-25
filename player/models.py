@@ -22,6 +22,8 @@ class Channels(Model):
     date_created = models.DateField(
         default=datetime.date.today,
     )
+
+    likes = models.IntegerField(default=0)
     
     picture = models.ImageField(
         upload_to=UploadTo(),   #tbd
