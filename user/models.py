@@ -20,14 +20,14 @@ class User(Model):
         max_length=63,
     )
 
-    date = models.DateField(
+    date_created = models.DateField(
         default=datetime.date.today,
     )
 
     last_active = models.DateField()
     
     picture = models.ImageField(
-        upload_to=UploadTo(),
+        upload_to=UploadTo(), #tbd
         blank=True,
         null=True,
     )

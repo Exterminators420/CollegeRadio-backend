@@ -5,13 +5,14 @@ import os
 
 class Channels(Model):
     """
-    This model contains all the basic information neded for reporting an item
+    This model contains all the basic information neded for creating a channel
     """
 
     user = models.ForeignKey(User, blank=True,)
 
     Channel_name = models.CharField(
         max_length=63,
+        unique=True,
     )
 
     Channel_description = models.TextField(
@@ -23,7 +24,7 @@ class Channels(Model):
     )
     
     picture = models.ImageField(
-        upload_to=UploadTo('lost_and_found', 'lost'),
+        upload_to=UploadTo(),   #tbd
         blank=True,
         null=True,
     )
@@ -34,24 +35,8 @@ class Channels(Model):
         :return: a string representation of the model
         """
 
-        name = self.name
-        person = self.person
+        name = self.Channel_name
 
-        return f'{name} - {person}'
+        return f'{name} '
 
-
-class LostItem(AbstractItem):
-    """
-    This model implements AbstractItem for lost items
-    """
-
-    pass
-
-
-class FoundItem(AbstractItem):
-    """
-    This model implements AbstractItem for found items
-    """
-
-    pass
 
