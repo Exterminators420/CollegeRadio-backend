@@ -1,45 +1,39 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 import datetime
 import os
 
-class User(Model):
+def UploadTo(instance, filename):
     """
-    This model contains all the basic information about an existing user
+    Function for changing the upload image name
     """
+    upload_to = '/Desktop/photos/users'
+    ext = filename.split('.')[-1]
+    filename = '{}.{}'.format(instance.pk, ext)
+    return os.path.join(upload_to, filename)
 
-    username = models.CharField(
-        max_length=63,
-        unique=True,
+class User(models.Model):
+    """
+    This model extends all the basic information about an existing user
+    """
+ 
+    user = models.OneToOneField(
+        to=User, 
+        on_delete=models.CASCADE
     )
-
-    email = models.EmailField(
-      unique = True,
-    )
-
-    name = models.CharField(
-        max_length=63,
-    )
-
-    date_created = models.DateField(
-        default=datetime.date.today,
-    )
+    
 
     last_active = models.DateField()
     
     picture = models.ImageField(
-        upload_to=UploadTo(), #tbd
+        upload_to=UploadTo , 
         blank=True,
         null=True,
     )
 
+
     likes = models.IntegerField(default=0)
 
 
-    def __str__(self):
-        """
-        Return a string representation of the model
-        :return: a string representation of the model
-        """
-
-        username = self.username
-        return f'{username}}'
+      
