@@ -24,7 +24,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'player',
     'user',
-  
+    'channels',
+    'chat',
 
 
  
@@ -79,6 +80,19 @@ DATABASES = {
 }
 
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'asgi_redis.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('localhost', 6379)],
+        },
+        'ROUTING': 'chat.routing.channel_routing',
+    }
+}
+
+
+
+
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -111,7 +125,5 @@ USE_TZ = True
  
 
 STATIC_URL = '/static/'
-
-
 
  
