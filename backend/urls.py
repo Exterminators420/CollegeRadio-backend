@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  
 from django.urls import path
 
@@ -6,3 +7,8 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
  
 ]
+=======
+
+
+ 
+>>>>>>> parent of 7aa2c44... uninstalled alauth
