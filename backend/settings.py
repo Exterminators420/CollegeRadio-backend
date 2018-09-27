@@ -25,7 +25,6 @@ INSTALLED_APPS = [
     'player',
     'user',
     'channels',
-    'chat',
 
 
  
@@ -80,19 +79,6 @@ DATABASES = {
 }
 
 
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'asgi_redis.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [('localhost', 6379)],
-        },
-        'ROUTING': 'chat.routing.channel_routing',
-    }
-}
-
-
-
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -126,4 +112,16 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+<<<<<<< HEAD
  
+=======
+
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
+
+
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY ='240037946075-283j4530s19b1vbih6phhqcro9bdij0l.apps.googleusercontent.com'  #Paste CLient Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'jh13WssGCpV-Qst7F5xbIWAZ'
+>>>>>>> parent of 6f2eec7... chat added

@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class ChatAppConfig(AppConfig):
+class ChatConfig(AppConfig):
     name = 'chat'
