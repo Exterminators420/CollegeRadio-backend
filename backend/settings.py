@@ -25,12 +25,17 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'player',
-    'user',
-    'channels',
-    'chat',
+    'user', 
+]
 
 
- 
+#For Allauth 
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'django.contrib.sites',
+    'allauth.socialaccount.providers.google',
+     
 ]
 
 MIDDLEWARE = [
@@ -65,9 +70,6 @@ TEMPLATES = [
 
  
 
-SITE_ID = 1
-
-
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
@@ -80,19 +82,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
-
-CHANNEL_LAYERS = {
-    'default': {
-        'BACKEND': 'asgi_redis.RedisChannelLayer',
-        'CONFIG': {
-            'hosts': [('localhost', 6379)],
-        },
-        'ROUTING': 'chat.routing.channel_routing',
-    }
-}
-
-
 
 
 # Password validation
@@ -128,4 +117,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
- 

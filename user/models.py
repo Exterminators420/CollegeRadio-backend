@@ -31,6 +31,8 @@ class User(models.Model):
         blank=True,
         null=True,
     )
+
+
     likes = models.IntegerField(default=0)
 
 
