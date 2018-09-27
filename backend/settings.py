@@ -1,8 +1,6 @@
  
 
-import os
-import django
-django.setup()
+import os 
  
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -26,15 +24,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'player',
     'user', 
-]
 
-
-#For Allauth 
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'django.contrib.sites',
-    'allauth.socialaccount.providers.google',
      
 ]
 
