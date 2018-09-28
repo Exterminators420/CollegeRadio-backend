@@ -1,4 +1,3 @@
- 
 
 import os 
  
@@ -24,7 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'player',
     'user', 
-
+    'channels',
+    'rest_framework',
      
 ]
 
@@ -61,6 +61,15 @@ TEMPLATES = [
  
 
 WSGI_APPLICATION = 'backend.wsgi.application'
+ASGI_APPLICATION = 'backend.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 
 # Database
