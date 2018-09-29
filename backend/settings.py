@@ -25,6 +25,8 @@ INSTALLED_APPS = [
     'user', 
     'channels',
     'rest_framework',
+    'chatbox',
+    
      
 ]
 
@@ -115,4 +117,14 @@ USE_TZ = True
  
 
 STATIC_URL = '/static/'
+
+ASGI_APPLICATION = 'backend.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
