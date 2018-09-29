@@ -1,12 +1,6 @@
- 
-
 import os 
- 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
- 
 SECRET_KEY = '6n!66)q41(cccu^goe_l%y%mh!k+ditvq)_9b-dc9_*#e*fys6'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -24,10 +18,27 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'player',
     'user', 
+    
+    
+    
+    
+    'rest_framework',
+    'rest_framework.authtoken',
+    'rest_auth',
+    
+ 
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'rest_auth.registration',
+ 
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.twitter',
 
      
 ]
-
+SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -103,7 +114,8 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
- 
+
+
 
 STATIC_URL = '/static/'
 
