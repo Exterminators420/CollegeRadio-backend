@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> da266dc032821ba4e71ab112c6755e3383f84cba
 import os 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6n!66)q41(cccu^goe_l%y%mh!k+ditvq)_9b-dc9_*#e*fys6'
@@ -18,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'player',
     'user', 
+<<<<<<< HEAD
     
     
     
@@ -36,6 +41,12 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
 
+=======
+    'channels',
+    'rest_framework',
+    'chatbox',
+    
+>>>>>>> da266dc032821ba4e71ab112c6755e3383f84cba
      
 ]
 SITE_ID = 1
@@ -72,6 +83,15 @@ TEMPLATES = [
  
 
 WSGI_APPLICATION = 'backend.wsgi.application'
+ASGI_APPLICATION = 'backend.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 
 # Database
@@ -118,4 +138,14 @@ USE_TZ = True
 
 
 STATIC_URL = '/static/'
+
+ASGI_APPLICATION = 'backend.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
