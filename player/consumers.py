@@ -3,15 +3,18 @@ import json
 
 class PlayerConsumer(AsyncWebsocketConsumer):
     async def connect(self):
+            self.room_name = self.scope['url_route']['kwargs']['room_name']
+            self.room_group_name = 'stream/%s' % self.room_name
+
             await self.channel_layer.group_add(
-                "stream",
+                self.room_group_name,
                 self.channel_name
                 )
             await self.accept()
 
     async def disconnect(self, close_code):
             await self.channel_layer.group_discard(
-                "stream",
+                self.room_group_name,
                 self.channel_name
             )
 
@@ -22,7 +25,7 @@ class PlayerConsumer(AsyncWebsocketConsumer):
         played = text_data_json['played']
         queue = text_data_json['queue']
         await self.channel_layer.group_send(
-                "stream",
+            self.room_group_name,
             {
             'type': 'web_stream',
             'url': url,

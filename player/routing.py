@@ -3,5 +3,5 @@ from django.conf.urls import url
 from . import consumers
 
 websocket_urlpatterns = [
-    url(r'^ws/stream/', consumers.PlayerConsumer),
+    url(r'^ws/stream/(?P<room_name>[^/]+)/$', consumers.PlayerConsumer),
 ]
