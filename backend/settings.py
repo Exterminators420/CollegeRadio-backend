@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-
->>>>>>> da266dc032821ba4e71ab112c6755e3383f84cba
 import os 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '6n!66)q41(cccu^goe_l%y%mh!k+ditvq)_9b-dc9_*#e*fys6'
@@ -22,12 +18,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'player',
     'user', 
-<<<<<<< HEAD
     
     
     
-    
-    'rest_framework',
     'rest_framework.authtoken',
     'rest_auth',
     
@@ -41,12 +34,10 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.twitter',
 
-=======
     'channels',
     'rest_framework',
     'chatbox',
     
->>>>>>> da266dc032821ba4e71ab112c6755e3383f84cba
      
 ]
 SITE_ID = 1
