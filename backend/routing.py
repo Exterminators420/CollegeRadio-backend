@@ -7,15 +7,16 @@ application = ProtocolTypeRouter({
     'websocket' : AuthMiddlewareStack(
         URLRouter(
             player.routing.websocket_urlpatterns
+            
         )
     ),
 })
 
-application = ProtocolTypeRouter({
-    'websocket' : AuthMiddlewareStack(
-        URLRouter(
-            chatbox.routing.websocket_urlpatterns
-        )
-    ),
-})
+# application = ProtocolTypeRouter({
+#     'websocket' : AuthMiddlewareStack(
+#         URLRouter(
+#             
+#         )
+#     ),
+# })
 
