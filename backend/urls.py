@@ -1,12 +1,13 @@
 from django.contrib import admin
 from django.urls import path,include
-from django.conf.urls import include, url
-from chatbox import urls
+from django.conf.urls import url
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^chatbox/', include('chatbox.urls')),
-    url(r'^admin/', admin.site.urls),
+    url(r'^rest-auth/', include('rest_auth.urls')),
+    url(r'^rest-auth/registration/', include('rest_auth.registration.urls')),
+ 
 ]
 
  
